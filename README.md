@@ -12,7 +12,8 @@ Each row is labeled as either "Historical" or "Forecasted" to help compare past 
 - **Population Growth**: Compare how population growth (percentage change and absolute numbers) evolved in the past vs. predictions for the future.
 - **Urbanization**: Analyze how urban populations have grown historically and what is projected for the future.
 - **Demographic Shifts**: Examine changes in median age, fertility rates, and other factors over time.
-- **Migration**: Investigate historical and forecasted migration patterns to see changes in immigration and emigration.
+- **Migration Peaks and Declines**: Look for years with significant migration spikes or drops.
+- **Future Projections**: Analyze which countries are predicted to see major migration changes in the coming years.
 
 ## Visualizing Trends:
 Use charts (e.g., line charts, bar charts) to visualize trends from 1950 to 2040, comparing past data with future projections.
