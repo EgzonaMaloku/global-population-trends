@@ -24,10 +24,5 @@ Use charts (e.g., line charts, bar charts) to visualize trends from 1950 to 2040
 - **Which countries will see the largest changes in population size and structure over the next few decades?**
 - **What regions are expected to experience the largest migration inflows or outflows?**
 
-## How to Use
-
-### Requirements:
-- Python 3.x
-- pandas library (`pip install pandas`)
 
 
