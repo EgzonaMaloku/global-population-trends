@@ -20,7 +20,7 @@ merged_df['DataType'] = merged_df['DataType'].astype('category')  # Using 'categ
 
 # Sort and save dataset
 merged_df = merged_df.sort_values(by=["country", "Year"]).reset_index(drop=True)
-merged_df.to_csv('main_dataset.csv', index=False)
+merged_df.to_csv('working_dataset.csv', index=False)
 
 # Check data types
 print("Data Types:\n", merged_df.dtypes)
