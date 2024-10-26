@@ -17,3 +17,17 @@ The evaluation of the dataset revealed several accuracy concerns:
 
 While the dataset provides a close approximation of population statistics, the missing countries and percentage differences highlight areas for improvement in accuracy. Further validation from authoritative sources is recommended to enhance the dataset's reliability.
 
+
+---
+
+
+### Completeness
+
+The completeness assessment of the dataset identified significant gaps in data availability:
+
+- **Missing Values:** There are **816 missing or empty values** for the following columns:
+  - **Migrants (net)**
+  - **Median Age**
+  - **Fertility Rate**
+
+These missing values indicate a lack of comprehensive data for various countries, which could limit the effectiveness of analyses that rely on these critical demographic indicators.
