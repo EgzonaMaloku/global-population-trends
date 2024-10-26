@@ -1,0 +1,248 @@
+title,type,country_code,slug
+South Georgia,local,GS,south-georgia
+Grenada,local,GD,grenada
+Switzerland,local,CH,switzerland
+Sierra Leone,local,SL,sierra-leone
+Hungary,local,HU,hungary
+Taiwan,local,TW,taiwan
+Wallis and Futuna,local,WF,wallis-and-futuna
+Barbados,local,BB,barbados
+Pitcairn Islands,local,PN,pitcairn-islands
+Ivory Coast,local,CI,ivory-coast
+Tunisia,local,TN,tunisia
+Italy,local,IT,italy
+Benin,local,BJ,benin
+Indonesia,local,ID,indonesia
+Cape Verde,local,CV,cape-verde
+Saint Kitts and Nevis,local,KN,saint-kitts-and-nevis
+Laos,local,LA,laos
+Uganda,local,UG,uganda
+Andorra,local,AD,andorra
+Burundi,local,BI,burundi
+South Africa,local,ZA,south-africa
+France,local,FR,france
+Libya,local,LY,libya
+Mexico,local,MX,mexico
+Gabon,local,GA,gabon
+Northern Mariana Islands,local,MP,northern-mariana-islands
+North Macedonia,local,MK,north-macedonia
+China,local,CN,china
+Yemen,local,YE,yemen
+Guernsey,local,GG,guernsey
+Solomon Islands,local,SB,solomon-islands
+Svalbard and Jan Mayen,local,SJ,svalbard-and-jan-mayen
+Faroe Islands,local,FO,faroe-islands
+Uzbekistan,local,UZ,uzbekistan
+Egypt,local,EG,egypt
+Senegal,local,SN,senegal
+Sri Lanka,local,LK,sri-lanka
+Palestine,local,PS,palestine
+Bangladesh,local,BD,bangladesh
+Peru,local,PE,peru
+Singapore,local,SG,singapore
+Turkey,local,TR,turkey
+Afghanistan,local,AF,afghanistan
+Aruba,local,AW,aruba
+Cook Islands,local,CK,cook-islands
+United Kingdom,local,GB,united-kingdom
+Zambia,local,ZM,zambia
+Finland,local,FI,finland
+Niger,local,NE,niger
+Christmas Island,local,CX,christmas-island
+Tokelau,local,TK,tokelau
+Guinea-Bissau,local,GW,guinea-bissau
+Azerbaijan,local,AZ,azerbaijan
+Réunion,local,RE,r-union
+Djibouti,local,DJ,djibouti
+North Korea,local,KP,north-korea
+Mauritius,local,MU,mauritius
+Montserrat,local,MS,montserrat
+United States Virgin Islands,local,VI,united-states-virgin-islands
+Colombia,local,CO,colombia
+Greece,local,GR,greece
+Croatia,local,HR,croatia
+Morocco,local,MA,morocco
+Algeria,local,DZ,algeria
+Antarctica,local,AQ,antarctica
+Netherlands,local,NL,netherlands
+Sudan,local,SD,sudan
+Fiji,local,FJ,fiji
+Liechtenstein,local,LI,liechtenstein
+Nepal,local,NP,nepal
+Puerto Rico,local,PR,puerto-rico
+Georgia,local,GE,georgia
+Pakistan,local,PK,pakistan
+Monaco,local,MC,monaco
+Botswana,local,BW,botswana
+Lebanon,local,LB,lebanon
+Papua New Guinea,local,PG,papua-new-guinea
+Mayotte,local,YT,mayotte
+Dominican Republic,local,DO,dominican-republic
+Norfolk Island,local,NF,norfolk-island
+Bouvet Island,local,BV,bouvet-island
+Qatar,local,QA,qatar
+Madagascar,local,MG,madagascar
+India,local,IN,india
+Syria,local,SY,syria
+Montenegro,local,ME,montenegro
+Eswatini,local,SZ,eswatini
+Paraguay,local,PY,paraguay
+El Salvador,local,SV,el-salvador
+Ukraine,local,UA,ukraine
+Isle of Man,local,IM,isle-of-man
+Namibia,local,NA,namibia
+United Arab Emirates,local,AE,united-arab-emirates
+Bulgaria,local,BG,bulgaria
+Greenland,local,GL,greenland
+Germany,local,DE,germany
+Cambodia,local,KH,cambodia
+Iraq,local,IQ,iraq
+French Southern and Antarctic Lands,local,TF,french-southern-and-antarctic-lands
+Sweden,local,SE,sweden
+Cuba,local,CU,cuba
+Kyrgyzstan,local,KG,kyrgyzstan
+Russia,local,RU,russia
+Malaysia,local,MY,malaysia
+São Tomé and Príncipe,local,ST,s-o-tom-and-pr-ncipe
+Cyprus,local,CY,cyprus
+Canada,local,CA,canada
+Malawi,local,MW,malawi
+Saudi Arabia,local,SA,saudi-arabia
+Bosnia and Herzegovina,local,BA,bosnia-and-herzegovina
+Ethiopia,local,ET,ethiopia
+Spain,local,ES,spain
+Slovenia,local,SI,slovenia
+Oman,local,OM,oman
+Saint Pierre and Miquelon,local,PM,saint-pierre-and-miquelon
+Macau,local,MO,macau
+San Marino,local,SM,san-marino
+Lesotho,local,LS,lesotho
+Marshall Islands,local,MH,marshall-islands
+Sint Maarten,local,SX,sint-maarten
+Iceland,local,IS,iceland
+Luxembourg,local,LU,luxembourg
+Argentina,local,AR,argentina
+Turks and Caicos Islands,local,TC,turks-and-caicos-islands
+Nauru,local,NR,nauru
+Cocos (Keeling) Islands,local,CC,cocos-keeling-islands
+Western Sahara,local,EH,western-sahara
+Dominica,local,DM,dominica
+Costa Rica,local,CR,costa-rica
+Australia,local,AU,australia
+Thailand,local,TH,thailand
+Haiti,local,HT,haiti
+Tuvalu,local,TV,tuvalu
+Honduras,local,HN,honduras
+Equatorial Guinea,local,GQ,equatorial-guinea
+Saint Lucia,local,LC,saint-lucia
+French Polynesia,local,PF,french-polynesia
+Belarus,local,BY,belarus
+Latvia,local,LV,latvia
+Palau,local,PW,palau
+Guadeloupe,local,GP,guadeloupe
+Philippines,local,PH,philippines
+Gibraltar,local,GI,gibraltar
+Denmark,local,DK,denmark
+Cameroon,local,CM,cameroon
+Guinea,local,GN,guinea
+Bahrain,local,BH,bahrain
+Suriname,local,SR,suriname
+DR Congo,local,CD,dr-congo
+Somalia,local,SO,somalia
+Czechia,local,CZ,czechia
+New Caledonia,local,NC,new-caledonia
+Vanuatu,local,VU,vanuatu
+"Saint Helena, Ascension and Tristan da Cunha",local,SH,saint-helena-ascension-and-tristan-da-cunha
+Togo,local,TG,togo
+British Virgin Islands,local,VG,british-virgin-islands
+Kenya,local,KE,kenya
+Niue,local,NU,niue
+Heard Island and McDonald Islands,local,HM,heard-island-and-mcdonald-islands
+Rwanda,local,RW,rwanda
+Estonia,local,EE,estonia
+Romania,local,RO,romania
+Trinidad and Tobago,local,TT,trinidad-and-tobago
+Guyana,local,GY,guyana
+Timor-Leste,local,TL,timor-leste
+Vietnam,local,VN,vietnam
+Uruguay,local,UY,uruguay
+Vatican City,local,VA,vatican-city
+Hong Kong,local,HK,hong-kong
+Austria,local,AT,austria
+Antigua and Barbuda,local,AG,antigua-and-barbuda
+Turkmenistan,local,TM,turkmenistan
+Mozambique,local,MZ,mozambique
+Panama,local,PA,panama
+Micronesia,local,FM,micronesia
+Ireland,local,IE,ireland
+French Guiana,local,GF,french-guiana
+Norway,local,NO,norway
+Åland Islands,local,AX,land-islands
+Central African Republic,local,CF,central-african-republic
+Burkina Faso,local,BF,burkina-faso
+Eritrea,local,ER,eritrea
+Tanzania,local,TZ,tanzania
+South Korea,local,KR,south-korea
+Jordan,local,JO,jordan
+Mauritania,local,MR,mauritania
+Lithuania,local,LT,lithuania
+United States Minor Outlying Islands,local,UM,united-states-minor-outlying-islands
+Slovakia,local,SK,slovakia
+Angola,local,AO,angola
+Kazakhstan,local,KZ,kazakhstan
+Moldova,local,MD,moldova
+Mali,local,ML,mali
+Falkland Islands,local,FK,falkland-islands
+Armenia,local,AM,armenia
+Samoa,local,WS,samoa
+Jersey,local,JE,jersey
+Japan,local,JP,japan
+Bolivia,local,BO,bolivia
+Chile,local,CL,chile
+United States,local,US,united-states
+Saint Vincent and the Grenadines,local,VC,saint-vincent-and-the-grenadines
+Bermuda,local,BM,bermuda
+Seychelles,local,SC,seychelles
+British Indian Ocean Territory,local,IO,british-indian-ocean-territory
+Guatemala,local,GT,guatemala
+Ecuador,local,EC,ecuador
+Martinique,local,MQ,martinique
+Tajikistan,local,TJ,tajikistan
+Malta,local,MT,malta
+Gambia,local,GM,gambia
+Nigeria,local,NG,nigeria
+Bahamas,local,BS,bahamas
+Kosovo,local,XK,kosovo
+Kuwait,local,KW,kuwait
+Maldives,local,MV,maldives
+South Sudan,local,SS,south-sudan
+Iran,local,IR,iran
+Albania,local,AL,albania
+Brazil,local,BR,brazil
+Serbia,local,RS,serbia
+Belize,local,BZ,belize
+Myanmar,local,MM,myanmar
+Bhutan,local,BT,bhutan
+Venezuela,local,VE,venezuela
+Liberia,local,LR,liberia
+Jamaica,local,JM,jamaica
+Poland,local,PL,poland
+Cayman Islands,local,KY,cayman-islands
+Brunei,local,BN,brunei
+Comoros,local,KM,comoros
+Guam,local,GU,guam
+Tonga,local,TO,tonga
+Kiribati,local,KI,kiribati
+Ghana,local,GH,ghana
+Chad,local,TD,chad
+Zimbabwe,local,ZW,zimbabwe
+Saint Martin,local,MF,saint-martin
+Mongolia,local,MN,mongolia
+Portugal,local,PT,portugal
+American Samoa,local,AS,american-samoa
+Republic of the Congo,local,CG,republic-of-the-congo
+Belgium,local,BE,belgium
+Israel,local,IL,israel
+New Zealand,local,NZ,new-zealand
+Nicaragua,local,NI,nicaragua
+Anguilla,local,AI,anguilla
