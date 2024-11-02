@@ -1,6 +1,6 @@
 from helpers import *
 
-dataset_path = '../main_dataset.csv'
+dataset_path = '../data/original_merged_dataset.csv'
 all_countries_path = 'all_countries.csv'
 
 
