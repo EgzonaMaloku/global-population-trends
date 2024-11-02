@@ -4,22 +4,23 @@ def load_data(file_path):
     """Load the dataset."""
     return pd.read_csv(file_path)
 
-def aggregate_country_data_by_type(data):
+def aggregate_country_data_by_type_and_year(data):
     """
-    Aggregate statistics by country and DataType to compare Historical vs Forecasted data.
+    Aggregate statistics by country, DataType, and Year to compare yearly trends in Historical vs Forecasted data.
     """
-    country_summary = data.groupby(['country', 'DataType']).agg({
-        'Population': 'sum',
+    # Convert 'Year' to a datetime type to ensure correct processing
+    data['Year'] = pd.to_datetime(data['Year'], format='%Y')
+    
+    # Aggregate by country, DataType, and Year
+    country_summary = data.groupby(['country', 'DataType', data['Year'].dt.year]).agg({
+        'Population': 'mean',
         'Migrants (net)': 'mean',
         'Median Age': 'mean',
         'Fertility Rate': 'mean',
         'Urban Population': 'sum'
-    }).unstack().reset_index()
+    }).reset_index()
 
-    # Flatten column levels created by unstacking
-    country_summary.columns = [' '.join(col).strip() if col[1] else col[0] for col in country_summary.columns.values]
-
-    print("Country-Level Aggregates by DataType (Historical vs Forecasted):")
+    print("Country-Level Aggregates by DataType and Year (Historical vs Forecasted):")
     print(country_summary.head())
     return country_summary
 
@@ -42,7 +43,7 @@ def sample_data_by_type(data, sample_size=50, random_state=42):
 def main(file_path):
     data = load_data(file_path)
 
-    country_summary = aggregate_country_data_by_type(data)
+    country_summary = aggregate_country_data_by_type_and_year(data)
     save_to_csv(country_summary, '../results/country_summary_by_datatype.csv')
 
     sampled_data = sample_data_by_type(data, sample_size=50)

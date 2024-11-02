@@ -1,6 +1,9 @@
 import pandas as pd
 import numpy as np
 
+print(np.nan)
+print((np.nan).astype(float))
+
 def load_data(file_path):
     """Loads the dataset from a specified file path and prints columns."""
     data = pd.read_csv(file_path)
