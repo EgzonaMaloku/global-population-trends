@@ -15,17 +15,6 @@ Each row is labeled as either "Historical" or "Forecasted" to help compare past 
 - **Migration Peaks and Declines**: Look for years with significant migration spikes or drops.
 - **Future Projections**: Analyze which countries are predicted to see major migration changes in the coming years.
 
-## Visualizing Trends:
-Use charts (e.g., line charts, bar charts) to visualize trends from 1950 to 2040, comparing past data with future projections.
-
-### Example Analysis Questions:
-
-- **Are global population growth rates expected to decline in the future compared to historical rates?**
-- **How does the future forecast for urbanization compare to historical trends?**
-- **Which countries will see the largest changes in population size and structure over the next few decades?**
-- **What regions are expected to experience the largest migration inflows or outflows?**
-
-
 ## Data Processing Workflow
 
 The following steps outline the data processing, type conversions, and cleaning operations performed on the dataset.
@@ -107,7 +96,7 @@ Sampling is used to select a representative subset of data, ensuring a balance b
 
 
 ### 8.Correlation and Dimensionality Reduction
-Key correlations are done in a population dataset to support dimensionality reduction decisions.
+Key correlations in the population dataset were analyzed using **Pearson correlation** to guide dimensionality reduction decisions.
 
 ## Steps
 
