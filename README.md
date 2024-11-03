@@ -31,10 +31,7 @@ Use charts (e.g., line charts, bar charts) to visualize trends from 1950 to 2040
 
 ## Data Quality
 
-### Summary
 A quality assessment of the world population and forecast dataset to ensure reliability and usability for analysis and visualization tasks.
-
----
 
 ### Accuracy
 
@@ -46,8 +43,6 @@ The evaluation of the dataset revealed several accuracy concerns:
 
 While the dataset provides a close approximation of population statistics, the percentage differences highlight areas for improvement in accuracy. Further validation from authoritative sources is recommended to enhance the dataset's reliability.
 
-
----
 
 
 ### Completeness
@@ -63,14 +58,10 @@ These missing values indicate a lack of comprehensive data for various countries
 
 
 
----
-
 ### Timeliness
 
 The timeliness of the dataset is a positive aspect, as it contains world population data that is readily accessible online. This ensures that users can obtain the most current and relevant information when needed. The dataset is designed to reflect ongoing demographic changes, allowing for timely analysis and insights into population trends. Given the dynamic nature of population data, the availability of this information supports informed decision-making and enhances the dataset's overall usability. Regular updates and access to real-time data are essential for maintaining its relevance and effectiveness in research and analysis.
 
-
----
 
 ### Believability
 
@@ -81,7 +72,6 @@ Worldometer has garnered recognition as a trusted authority in the field of stat
 The dataset obtained from Kaggle was scraped from Worldometer using an open-source Python script, which allows for transparency regarding data collection methods. Given the robust reputation of Worldometer and its extensive use by respected institutions, the dataset can be considered a reliable source for demographic analysis and insights.
 
 
----
 
 ### Interpretability
 
@@ -173,6 +163,7 @@ Sampling is used to select a representative subset of data, ensuring a balance b
 | Albania    | 2017 | 2,876,664  | Historical |
 | Albania    | 2035 | 424,537    | Forecasted |
 
+
 **8.Feature Subset Selection**
 This process reduces the dataset to a meaningful subset of features by removing redundant and irrelevant columns.
 
@@ -210,3 +201,89 @@ Albania	    2040	2634384	    0.039760503	              -0.003036763	  Aging	    
 Albania	    2035	2721082	    0.03291016	              -0.002940007	  Aging	          2629703.667
 Albania	    2030	2786974	    0.024215367	              -0.003946933	  Aging	          2714146.667
 Albania	    2025	2840464	    0.019192859	              -0.004928772	  Middle-Aged	    2782840
+
+
+## Data Transformation
+
+This section outlines the data transformation techniques applied to the dataset for improving data quality and preparing it for analysis. The transformations include smoothing, attribute construction, normalization, and discretization to enhance interpretability and usability.
+
+### 1. Smoothing
+The **Yearly Change** attribute was smoothed using moving averages to reduce noise and provide a clearer trend. The moving average is calculated as follows:
+
+**Formula:**
+
+![alt text](formulas/moving_average.png)
+
+Where:
+- X(t) is the value at time 𝑡.
+- n is the size of the rolling window, meaning that each calculation will consider n consecutive data points.
+
+This process helps in understanding the underlying patterns in the data by averaging out fluctuations over a specified period.
+
+### 2. Attribute Construction
+The **World Urban Population** attribute was constructed by summing the **Urban Population** for each country, grouped by **Year**. This provides a comprehensive view of urbanization trends on a global scale, allowing for better comparisons and analysis across different time periods.
+
+### 3. Normalization
+**Population and Urban Population:** Both attributes were normalized using **min-max normalization**, scaling their values to a range of 0 to 1. The formula for min-max normalization is:
+
+**Formula:**
+
+![alt text](formulas/min_max.png)
+Where:
+- v' is the normalized value.
+- v is the original value.
+- minA is the minimum value in the dataset.
+- maxA is the maximum value in the dataset.
+- new_minA is the new minimum (in our case is 0).
+- new_maxA is the new maximum (in our case is 1).
+
+This allows for better comparison across different scales and enhances the performance of machine learning algorithms.
+  
+**Median Age:** The **Median Age** attribute was normalized using **Z-score normalization**, which standardizes the values based on the mean and standard deviation. The formula for Z-score normalization is:
+
+**Formula:**
+
+![alt text](formulas/z-score.png)
+
+Where:
+- v' is the Z-score.
+- v is the original value.
+- μA is the mean of the dataset.
+- σA is the standard deviation of the dataset.
+
+
+This helps in identifying outliers and understanding the distribution of the data.
+
+**Density:** The **Density** attribute was normalized using **Decimal Scaling normalization**, which adjusts the values based on the maximum absolute value. The formula for decimal scaling is:
+
+**Formula:**
+
+![alt text](formulas/decimal_scaling.png)
+
+Where:
+- v' is the normalized value.
+- v is the original value.
+- j is the smallest integer such that Max(|ν|) < 1
+
+This technique ensures that the data is appropriately scaled for further analysis.
+
+### 4. Discretization
+The **Median Age** and **Yearly Change** attributes were discretized into bins using **bins by boundaries**. This technique converts continuous data into categorical data by dividing the data range into distinct intervals. The process can be illustrated with the following steps:
+
+1. Define the boundaries for each bin.
+2. Assign each value to the appropriate bin based on its range.
+
+**Median Age Case:**
+The boundaries for **Median Age** are defined as:
+- 0-2 years: Baby
+- 3-39 years: Young Adults
+- 40-59 years: Middle-aged Adults
+- 60+ years: Old Adults
+
+**Yearly Change Case:**
+The boundaries for **Yearly Change** are partitioned into equal-frequency and defined as:
+- Low
+- Medium
+- High
+
+The resulting categorical values would simplify the analysis and help in identifying patterns within specific ranges of values. Discretization can enhance the interpretability of the results by grouping similar values together.
