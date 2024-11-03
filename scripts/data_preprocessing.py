@@ -36,8 +36,6 @@ def remove_duplicates(data):
     data_sorted = data.sort_values(by=data.columns.tolist(), ascending=False, na_position='last')
     
     initial_duplicate_count = data_sorted.duplicated(subset=['country', 'Year', 'DataType']).sum()
-    print(f"Number of duplicates before removal: {initial_duplicate_count}")
-    
     data_no_duplicates = data_sorted.drop_duplicates(subset=['country', 'Year', 'DataType'], keep='first')
     
     final_duplicate_count = data_no_duplicates.duplicated(subset=['country', 'Year', 'DataType']).sum()

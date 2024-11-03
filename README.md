@@ -82,22 +82,15 @@ Missing values were addressed as follows:
 
 
 ### 6. Data Aggregation 
-##### Country-Level Aggregation
+#### Region-Level Aggregation
 
-Country-level aggregation groups data by `country` and `DataType` to allow for comparisons between historical and forecasted data for each country.
-
-**Aggregated Metrics:**
-- **Population**: Total population for each country and DataType.
-- **Migrants (net)**: Average migration values.
-- **Median Age**: Average median age.
-- **Fertility Rate**: Average fertility rate.
-- **Urban Population**: Summed urban population for each country and DataType.
+Aggregates data by `Region`, `Year`, and `DataType` to compare historical and forecasted trends across regions.
 
 **Example Output:**
-| country   | DataType   | Population | Migrants (net) | Median Age | Fertility Rate | Urban Population |
-|-----------|------------|------------|----------------|------------|----------------|-------------------|
-| Albania   | Historical | 48,032,715 | -16,714.89     | 27.42      | 3.23           | 22,098,759       |
-| Albania   | Forecasted | 18,818,407 | -10,357.14     | 43.19      | 1.62           | 14,196,195       |
+| Region | Year | DataType   | Population | Yearly % Change | Migrants (net) | Urban Population |
+|--------|------|------------|------------|-----------------|----------------|------------------|
+| Asia   | 2020 | Historical | 4,647,000  | 0.01            | -100,000       | 2,560,000       |
+| Europe | 2020 | Forecasted | 747,000    | -0.01           | -10,000        | 550,000         |
 
 ### 7.Sampling
 
@@ -111,3 +104,138 @@ Sampling is used to select a representative subset of data, ensuring a balance b
 |------------|------|------------|------------|
 | Albania    | 2017 | 2,876,664  | Historical |
 | Albania    | 2035 | 424,537    | Forecasted |
+
+
+### 8.Correlation and Dimensionality Reduction
+Key correlations are done in a population dataset to support dimensionality reduction decisions.
+
+## Steps
+
+1. **Correlation Analysis**: 
+   - Calculated correlations between:
+     - **Urban Pop %** and **Urban Population**
+          ***Interpretation**: The low correlation indicates that `Urban Pop %` and `Urban Population` capture different aspects of urbanization. Both metrics may provide unique insights, so retaining both variables is recommended.
+
+     - **Yearly % Change** and **Yearly Change**
+          ***Interpretation**: Similarly, the low correlation suggests that `Yearly % Change` and `Yearly Change` measure distinct aspects of annual population trends. Including both variables may yield a more comprehensive view of these trends.
+          
+2. **Rank Column Assessment**: 
+   - Evaluated the `Rank` column's correlation with other features. Due to its low relevance, `Rank` was removed.
+
+### 9. Feature Subset Selection
+This process reduces the dataset to a meaningful subset of features by removing redundant and irrelevant columns.
+
+- **feature_selection:**
+  
+  - **Technique Used:** Wrapper-Based Technique (Manual Feature Selection).  
+  Method: Selects a subset of key features for analysis, including country, Year, Population, Fertility Rate, Urban Pop %, Migrants (net), Median Age, Density (P/Km²), and DataType. Missing values are handled by filling them with zeros to ensure a complete dataset.
+
+## Feature Engineering
+This step creates new features from the original data to enhance the analysis.
+
+- **feature_engineering:**
+  
+  - **Techniques Used:** Domain-Specific Feature Engineering and Rolling Window Calculations.  
+  New Features:
+  - **Annual_Population_Growth:** Calculates the yearly population growth rate per country using the percentage change in population.
+  - **Migration_Rate:** Computes the migration rate as a percentage of the total population.
+  - **Dependency_Ratio:** Measures the ratio of dependents (estimated from median age) to the working-age population, providing insights into the economic burden on the productive population.
+  - **3_Year_Pop_Avg:** Calculates a rolling three-year average for the population per country.
+
+**Example Output**
+
+| country | Year | Population | Annual_Population_Growth | Migration_Rate | Dependency_Ratio | 3_Year_Pop_Avg |
+|---------|------|------------|--------------------------|----------------|------------------|-----------------|
+| Albania | 2045 | 2533645    | 0.045206783              | -0.003157506   | 0.919385796545105| 2478853         |
+| Albania | 2040 | 2634384    | 0.039760503              | -0.003036763   | 0.841620626151013| 2530696.667     |
+| Albania | 2035 | 2721082    | 0.03291016               | -0.002940007   | 0.7605633802816 9| 2629703.667     |
+| Albania | 2030 | 2786974    | 0.024215367              | -0.003946933   | 0.686340640809443| 2714146.667     |
+| Albania | 2025 | 2840464    | 0.019192859              | -0.004928772   | 0.623376623376623| 2782840         |
+
+
+
+### 10. Data Transformation
+
+This section outlines the data transformation techniques applied to the dataset for improving data quality and preparing it for analysis. The transformations include smoothing, attribute construction, normalization, and discretization to enhance interpretability and usability.
+
+### 1. Smoothing
+The **Yearly Change** attribute was smoothed using moving averages to reduce noise and provide a clearer trend. The moving average is calculated as follows:
+
+**Formula:**
+
+![alt text](formulas/moving_average.png)
+
+Where:
+- X(t) is the value at time 𝑡.
+- n is the size of the rolling window, meaning that each calculation will consider n consecutive data points.
+
+This process helps in understanding the underlying patterns in the data by averaging out fluctuations over a specified period.
+
+### 2. Attribute Construction
+The **World Urban Population** attribute was constructed by summing the **Urban Population** for each country, grouped by **Year**. This provides a comprehensive view of urbanization trends on a global scale, allowing for better comparisons and analysis across different time periods.
+
+### 3. Normalization
+**Population and Urban Population:** Both attributes were normalized using **min-max normalization**, scaling their values to a range of 0 to 1. The formula for min-max normalization is:
+
+**Formula:**
+
+![alt text](formulas/min_max.png)
+
+Where:
+- v' is the normalized value.
+- v is the original value.
+- minA is the minimum value in the dataset.
+- maxA is the maximum value in the dataset.
+- new_minA is the new minimum (in our case is 0).
+- new_maxA is the new maximum (in our case is 1).
+
+This allows for better comparison across different scales and enhances the performance of machine learning algorithms.
+  
+**Median Age:** The **Median Age** attribute was normalized using **Z-score normalization**, which standardizes the values based on the mean and standard deviation. The formula for Z-score normalization is:
+
+**Formula:**
+
+![alt text](formulas/z-score.png)
+
+Where:
+- v' is the Z-score.
+- v is the original value.
+- μA is the mean of the dataset.
+- σA is the standard deviation of the dataset.
+
+
+This helps in identifying outliers and understanding the distribution of the data.
+
+**Density:** The **Density** attribute was normalized using **Decimal Scaling normalization**, which adjusts the values based on the maximum absolute value. The formula for decimal scaling is:
+
+**Formula:**
+
+![alt text](formulas/decimal_scaling.png)
+
+Where:
+- v' is the normalized value.
+- v is the original value.
+- j is the smallest integer such that Max(|ν|) < 1
+
+This technique ensures that the data is appropriately scaled for further analysis.
+
+### 4. Discretization
+The **Median Age** and **Yearly Change** attributes were discretized into bins using **bins by boundaries**. This technique converts continuous data into categorical data by dividing the data range into distinct intervals. The process can be illustrated with the following steps:
+
+1. Define the boundaries for each bin.
+2. Assign each value to the appropriate bin based on its range.
+
+**Median Age Case:**
+The boundaries for **Median Age** are defined as:
+- 0-2 years: Baby
+- 3-39 years: Young Adults
+- 40-59 years: Middle-aged Adults
+- 60+ years: Old Adults
+
+**Yearly Change Case:**
+The boundaries for **Yearly Change** are partitioned into equal-frequency and defined as:
+- Low
+- Medium
+- High
+
+The resulting categorical values would simplify the analysis and help in identifying patterns within specific ranges of values. Discretization can enhance the interpretability of the results by grouping similar values together.

@@ -1,8 +1,4 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.decomposition import PCA
-from sklearn.preprocessing import StandardScaler
-import seaborn as sns
 
 # Function to calculate specific correlations
 def calculate_correlation(data, col1, col2):
@@ -20,7 +16,7 @@ print("Urban Pop % and Urban Population Correlation:", urban_correlation)
 print("Yearly % Change and Yearly Change Correlation:", yearly_change_correlation)
 
 # Load dataset for Rank correlation calculation
-data = pd.read_csv('../processed/preprocessed_data.csv')
+data = pd.read_csv('../data/dataset_03.csv')
 
 # Define numeric columns explicitly for correlation, VIF, and PCA
 numeric_columns = ['Population', 'Yearly %   Change', 'Yearly  Change', 'Migrants (net)', 
@@ -33,3 +29,8 @@ data_numeric = data[numeric_columns]
 correlations = data_numeric.corr()  # Default method is Pearson
 print("\nCorrelation of Rank with other features:")
 print(correlations['Rank'].drop('Rank'))
+
+
+# Remove the Rank column and save the changes
+data = data.drop(columns=['Rank'])
+data.to_csv('../data/dataset_04.csv', index=False)
