@@ -229,6 +229,7 @@ The **World Urban Population** attribute was constructed by summing the **Urban 
 **Formula:**
 
 ![alt text](formulas/min_max.png)
+
 Where:
 - v' is the normalized value.
 - v is the original value.
