@@ -1,16 +1,6 @@
 import pandas as pd
 import numpy as np
 
-print(np.nan)
-print((np.nan).astype(float))
-
-def load_data(file_path):
-    """Loads the dataset from a specified file path and prints columns."""
-    data = pd.read_csv(file_path)
-    print("Columns in the dataset:", data.columns)
-    return data
-
-
 def set_column_data_types(data):
     """Set data types for specific columns and clean percentage columns."""
     # Convert population and integer columns
@@ -55,19 +45,6 @@ def remove_duplicates(data):
     
     return data_no_duplicates
 
-def display_missing_values_summary(data):
-    """Displays a summary of missing values in the dataset."""
-    missing_values = data.isnull().sum()
-    missing_percentage = (missing_values / len(data)) * 100
-    missing_summary = pd.DataFrame({
-        'Column': missing_values.index,
-        'Missing Values': missing_values.values,
-        'Percentage of Total': missing_percentage.values
-    })
-    missing_summary = missing_summary[missing_summary['Missing Values'] > 0]
-    print(missing_summary)
-    return missing_summary
-
 def fill_missing_values(data):
     """Fill missing values based on column and group level logic, with consideration for DataType."""
     
@@ -86,25 +63,3 @@ def fill_missing_values(data):
     
     return data
 
-def save_data(data, output_file_path):
-    """Saves the modified dataset to a specified file path."""
-    data.to_csv(output_file_path, index=False)
-    print("File saved with modified data types.")
-
-def main(file_path, output_file_path):
-    """Main function to load, process, and save data."""
-    data = load_data(file_path)
-    data = set_column_data_types(data)
-    data = remove_duplicates(data)
-    display_missing_values_summary(data)
-    data = fill_missing_values(data)
-    display_missing_values_summary(data)
-    save_data(data, output_file_path)
-
-
-# Define file paths
-file_path = '../data/original_merged_dataset.csv'  
-output_file_path = '../processed/preprocessed_data.csv'  
-
-# Execute the main function
-main(file_path, output_file_path)
