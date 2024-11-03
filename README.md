@@ -195,12 +195,14 @@ ed on Median Age.
 **Example Output**
 
 
-country	    Year	Population	Annual_Population_Growth	Migration_Rate	Age_Category	3_Year_Pop_Avg
-Albania	    2045	2533645    	0.045206783	              -0.003157506	  Aging	          2478853
-Albania	    2040	2634384	    0.039760503	              -0.003036763	  Aging	          2530696.667
-Albania	    2035	2721082	    0.03291016	              -0.002940007	  Aging	          2629703.667
-Albania	    2030	2786974	    0.024215367	              -0.003946933	  Aging	          2714146.667
-Albania	    2025	2840464	    0.019192859	              -0.004928772	  Middle-Aged	    2782840
+| country | Year | Population | Annual_Population_Growth | Migration_Rate | Age_Category | 3_Year_Pop_Avg |
+|---------|------|------------|--------------------------|----------------|--------------|-----------------|
+| Albania | 2045 | 2533645    | 0.045206783              | -0.003157506   | Aging        | 2478853         |
+| Albania | 2040 | 2634384    | 0.039760503              | -0.003036763   | Aging        | 2530696.667     |
+| Albania | 2035 | 2721082    | 0.03291016               | -0.002940007   | Aging        | 2629703.667     |
+| Albania | 2030 | 2786974    | 0.024215367              | -0.003946933   | Aging        | 2714146.667     |
+| Albania | 2025 | 2840464    | 0.019192859              | -0.004928772   | Middle-Aged  | 2782840         |
+
 
 
 ## Data Transformation
