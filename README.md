@@ -172,3 +172,41 @@ Sampling is used to select a representative subset of data, ensuring a balance b
 |------------|------|------------|------------|
 | Albania    | 2017 | 2,876,664  | Historical |
 | Albania    | 2035 | 424,537    | Forecasted |
+
+**8.Feature Subset Selection**
+This process reduces the dataset to a meaningful subset of features by removing redundant and irrelevant columns.
+
+- **remove_redundant_features:**
+
+- **Technique Used: Filter-Based Technique.**
+Method: Identifies and removes redundant features based on correlation. A correlation threshold of 0.9 is set, and features exceeding this threshold are considered redundant and removed. This step prevents multicollinearity in the dataset, which can interfere with analysis.
+
+- **remove_irrelevant_features:**
+Technique Used: Wrapper-Based Technique.
+Method: Removes columns deemed irrelevant to the analysis based on domain knowledge. This process ensures that only features relevant to the analysis goals are included, reducing noise in the data.
+
+- **feature_selection:**
+Technique Used: Wrapper-Based Technique (Manual Feature Selection).
+Method: Selects a subset of key features for analysis, including country, Year, Population, Fertility Rate, Urban Pop %, Migrants (net), Median Age, Density (P/Km²), and DataType. Missing values are handled by filling them with zeros to ensure a complete dataset.
+
+**Feature Engineering**
+This step creates new features from the original data to enhance the analysis.
+
+- **feature_engineering:**
+Techniques Used: Domain-Specific Feature Engineering and Rolling Window Calculations.
+New Features:
+- **Annual_Population_Growth: Calculates the yearly population growth rate per country using the percentage change in population.**
+- **Migration_Rate:** Computes the migration rate as a percentage of the total population.
+- **Age_Category**: Categorizes each country’s population as 'Young,' 'Middle-Aged,' or 'Aging' bas
+ed on Median Age.
+- **3_Year_Pop_Avg:** Calculates a rolling three-year average for the population per country.
+
+**Example Output**
+
+
+country	    Year	Population	Annual_Population_Growth	Migration_Rate	Age_Category	3_Year_Pop_Avg
+Albania	    2045	2533645    	0.045206783	              -0.003157506	  Aging	          2478853
+Albania	    2040	2634384	    0.039760503	              -0.003036763	  Aging	          2530696.667
+Albania	    2035	2721082	    0.03291016	              -0.002940007	  Aging	          2629703.667
+Albania	    2030	2786974	    0.024215367	              -0.003946933	  Aging	          2714146.667
+Albania	    2025	2840464	    0.019192859	              -0.004928772	  Middle-Aged	    2782840
