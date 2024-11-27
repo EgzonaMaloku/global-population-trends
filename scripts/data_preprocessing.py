@@ -49,12 +49,12 @@ def fill_missing_values(data):
     # Columns that will be filled with the median by 'country' and 'DataType' to avoid mixing Forecasted and Historical data
     datatype_fill_columns = ['Migrants (net)', 'Median Age', 'Fertility Rate', 'Urban  Pop %', 'Urban Population']
     
-    # 1. Fill columns with median by 'country' and 'DataType'
+   # 1. Estimate 'Urban Population' based on 'Population' and 'Urban Pop %' if still missing
+    data['Urban Population'] = data['Urban Population'].fillna(data['Population'] * data['Urban  Pop %'])
+
+    # 2. Fill columns with median by 'country' and 'DataType'
     for col in datatype_fill_columns:
         data[col] = data.groupby(['country', 'DataType'])[col].transform(lambda x: x.fillna(x.median()) if x.notnull().any() else x)
-    
-    # 2. Estimate 'Urban Population' based on 'Population' and 'Urban Pop %' if still missing
-    data['Urban Population'] = data['Urban Population'].fillna(data['Population'] * data['Urban  Pop %'])
     
     # 3. Forward-fill and backward-fill within each 'country' and 'DataType' for remaining missing values
     data[datatype_fill_columns] = data.groupby(['country', 'DataType'])[datatype_fill_columns].ffill().bfill()
