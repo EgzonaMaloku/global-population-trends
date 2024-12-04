@@ -22,6 +22,28 @@ df = pd.read_csv(file_path)
 # Remove columns that are not relevant for multivariate analysis
 df_clean = df.select_dtypes(include=[np.number]).dropna()  # Only numeric columns, drop missing values
 
+# Calculate Range, Variance
+print("Statistical Insights:")
+range_df = df_clean.max() - df_clean.min()
+variance_df = df_clean.var()
+mean_df = df_clean.mean()
+std_dev_df = df_clean.std()
+median_df = df_clean.median()
+
+stats_df = pd.DataFrame({
+    "Range": range_df,
+    "Variance": variance_df,
+    "Mean": mean_df,
+    "Standard Deviation": std_dev_df,
+    "Median": median_df,
+})
+
+
+# Save the combined statistics to a CSV file
+stats_csv_path = os.path.join(results_dir, "combined_stats.csv")
+stats_df.to_csv(stats_csv_path, index_label='Feature')
+print(f"Range, variance")
+
 # Correlation Analysis
 correlation_matrix = df_clean.corr()
 plt.figure(figsize=(12, 8))
@@ -36,7 +58,6 @@ sns.pairplot(df_clean, diag_kind="kde")  # Removed corner=True for full pairplot
 plt.savefig(pairplot_path)
 print(f"Pair plot saved to {pairplot_path}")
 plt.show()
-
 
 # Principal Component Analysis (PCA)
 # Standardize the data

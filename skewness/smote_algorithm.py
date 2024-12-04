@@ -21,6 +21,24 @@ else:
     # Handle missing values
     filtered_data = filtered_data.fillna(filtered_data.mean())
     
+    # Calculate Range, Variance, Mode, and Median
+    range_values = filtered_data.max() - filtered_data.min()
+    variance_values = filtered_data.var()
+    mode_values = filtered_data.mode().iloc[0]  # Getting the first mode
+    median_values = filtered_data.median()
+
+    print("\nRange of Columns:")
+    print(range_values)
+    
+    print("\nVariance of Columns:")
+    print(variance_values)
+    
+    print("\nMode of Columns:")
+    print(mode_values)
+    
+    print("\nMedian of Columns:")
+    print(median_values)
+    
     # Discretize the target column (Annual_Population_Growth) into categories
     bins = [-np.inf, 0, 1, np.inf]  # Define bins: <0 (low), 0-1 (medium), >1 (high)
     labels = ['Low Growth', 'Medium Growth', 'High Growth']
