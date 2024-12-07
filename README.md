@@ -333,7 +333,7 @@ This field’s distribution shows negative skewness, indicating that most countr
 
 The migration rate data exhibits negative skewness, suggesting that most countries experienced emigration, with a few having significant immigration rates.
 
-   ![Migration Rate Distribution](skewness/screenshots/migration_rate.jpg)
+   ![Migration Rate Distribution](skewness/screenshots/migration_rate.JPG)
 
 3. **Density**
    - Skewness Value: 10.54
@@ -343,7 +343,7 @@ The migration rate data exhibits negative skewness, suggesting that most countri
 
 The distribution of density is positively skewed, which means a few countries have extremely high population density compared to the majority.
 
-   ![Density Distribution](skewness/screenshots/density.jpg)
+   ![Density Distribution](skewness/screenshots/density.JPG)
 
 4. **Fertility Rate**
    - Skewness Value: 0.68
@@ -353,7 +353,7 @@ The distribution of density is positively skewed, which means a few countries ha
 
 Fertility rate data shows positive skewness, reflecting that most countries have moderate fertility rates, with fewer having very high rates.
 
-   ![Fertility Rate Distribution](skewness/screenshots/fertility.jpg)
+   ![Fertility Rate Distribution](skewness/screenshots/fertility.JPG)
 
 1. **Median Age**
    - Skewness Value: 0.53
@@ -363,7 +363,7 @@ Fertility rate data shows positive skewness, reflecting that most countries have
 
 Median age exhibits positive skewness, providing insights into younger populations dominating globally, with fewer older populations.
 
-   ![Median Age Distribution](skewness/screenshots/median_age.jpg)
+   ![Median Age Distribution](skewness/screenshots/median_age.JPG)
 
 2. **Yearly Change**
    - Skewness Value: 9.72
@@ -373,7 +373,7 @@ Median age exhibits positive skewness, providing insights into younger populatio
 
 The yearly change data has positive skewness, indicating that a few countries contribute to significant population increases compared to the majority.
 
-   ![Yearly Change Distribution](skewness/screenshots/yearly_change.jpg)
+   ![Yearly Change Distribution](skewness/screenshots/yearly_change.JPG)
 
 
 
@@ -396,7 +396,7 @@ We utilized the following methods to assess similarity and dissimilarity:
 
 The Euclidean distance measures the straight-line distance between two points in a multidimensional space. It is defined as:
 
-   ![Euclidean formula](formulas/euclidean.PNG)
+   ![Euclidean formula](formulas/euclidean.png)
 
 - **Field Used:** Population
 - **Result:** Euclidean distance between the selected points is **1483205.0**.
@@ -405,7 +405,7 @@ The Euclidean distance measures the straight-line distance between two points in
 
 The Minkowski distance generalizes the Euclidean and Manhattan distances. It is defined as:
 
-   ![Minkowski formula](formulas/minkowski.PNG)
+   ![Minkowski formula](formulas/minkowski.png)
 
 - **Field Used:** Median Age
 - **Result:** Minkowski distance (p = 3) between the selected points is **1.1999999999999993**.
