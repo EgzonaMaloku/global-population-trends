@@ -60,3 +60,4 @@ print('Jaccard Index(Similarity) for Annual_Population_Growth and Migrants (net)
 print('Jaccard Dissimilarity for Annual_Population_Growth and Migrants (net): ' + str(jaccard_dissimilarity))
 
 print('SMC for Annual_Population_Growth and Migrants (net): ' + str(smc))
+

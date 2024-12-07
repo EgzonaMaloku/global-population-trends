@@ -273,3 +273,176 @@ The boundaries for **Yearly Change** are partitioned into equal-frequency and de
 - High
 
 The resulting categorical values would simplify the analysis and help in identifying patterns within specific ranges of values. Discretization can enhance the interpretability of the results by grouping similar values together.
+
+
+
+
+## Skewness
+
+### What is Skewness?
+Skewness is a statistical measure that describes the asymmetry of a data distribution. It helps in understanding whether the data is symmetric, positively skewed (right-tailed), or negatively skewed (left-tailed). A perfectly symmetrical dataset has a skewness of 0. Positive skewness indicates a distribution with a longer tail on the right, while negative skewness indicates a longer tail on the left.
+
+Understanding skewness is important for data analysis as it provides insights into the shape of the data distribution, helping analysts make decisions regarding transformations, modeling approaches, or potential biases in the dataset.
+
+### Fields and Methodology
+We calculated skewness, along with mean, median, and mode, for the following fields in our dataset:
+- Annual Population Growth
+- Migration Rate
+- Density
+- Fertility Rate
+- Median Age
+- Yearly Change
+
+To compute skewness, we used the `scipy.stats` library in Python, which provides a convenient function called `skew`. Below is an example of the code used:
+
+```python
+from scipy.stats import skew
+import statistics
+
+# Example: Calculating skewness, mean, median, and mode for Annual Population Growth
+annual_population_growth_skewness = skew(data['Annual_Population_Growth'], nan_policy='omit')
+annual_population_growth_mean = statistics.mean(data['Annual_Population_Growth'])
+annual_population_growth_median = statistics.median(data['Annual_Population_Growth'])
+annual_population_growth_mode = statistics.mode(data['Annual_Population_Growth'])
+
+print(f"Skewness for Annual Population Growth: {annual_population_growth_skewness}")
+print(f"Mean: {annual_population_growth_mean}, Median: {annual_population_growth_median}, Mode: {annual_population_growth_mode}")
+```
+
+This code calculates skewness while handling missing values using the `nan_policy='omit'` parameter. Additionally, it computes the mean, median, and mode for a comprehensive understanding of the data distribution. The resulting values provide insights into the shape and spread of the data for each field.
+
+### Results
+Here are the results of skewness, mean, median, and mode calculations for each field, along with a brief description:
+
+1. **Annual Population Growth**
+   - Skewness Value: -0.51
+   - Mean: -0.05
+   - Median: -0.03
+   - Mode: 0.00
+
+This field’s distribution shows negative skewness, indicating that most countries experienced population growth slightly below average.
+   
+   ![Annual Population Growth Distribution](skewness/screenshots/annual_population_growth.JPG)
+  
+
+2. **Migration Rate**
+   - Skewness Value: -6.37
+   - Mean: -0.28
+   - Median: 0.00
+   - Mode: 0.00
+
+The migration rate data exhibits negative skewness, suggesting that most countries experienced emigration, with a few having significant immigration rates.
+
+   ![Migration Rate Distribution](skewness/screenshots/migration_rate.jpg)
+
+3. **Density**
+   - Skewness Value: 10.54
+   - Mean: 394.94
+   - Median: 80.00
+   - Mode: 4.00
+
+The distribution of density is positively skewed, which means a few countries have extremely high population density compared to the majority.
+
+   ![Density Distribution](skewness/screenshots/density.jpg)
+
+4. **Fertility Rate**
+   - Skewness Value: 0.68
+   - Mean: 3.47
+   - Median: 2.90
+   - Mode: 1.53
+
+Fertility rate data shows positive skewness, reflecting that most countries have moderate fertility rates, with fewer having very high rates.
+
+   ![Fertility Rate Distribution](skewness/screenshots/fertility.jpg)
+
+1. **Median Age**
+   - Skewness Value: 0.53
+   - Mean: 29.08
+   - Median: 27.30
+   - Mode: 27.20
+
+Median age exhibits positive skewness, providing insights into younger populations dominating globally, with fewer older populations.
+
+   ![Median Age Distribution](skewness/screenshots/median_age.jpg)
+
+2. **Yearly Change**
+   - Skewness Value: 9.72
+   - Mean: 317551.59
+   - Median: 30475.00
+   - Mode: 0.00
+
+The yearly change data has positive skewness, indicating that a few countries contribute to significant population increases compared to the majority.
+
+   ![Yearly Change Distribution](skewness/screenshots/yearly_change.jpg)
+
+
+
+## Similarity & Dissimilarity
+
+
+In data science, similarity and dissimilarity measures are used to compare datasets or individual data points. Similarity quantifies how alike two objects are, while dissimilarity quantifies how different they are. These measures are crucial in clustering, classification, and various machine learning algorithms.
+
+We utilized the following methods to assess similarity and dissimilarity:
+
+- Euclidean Distance
+- Minkowski Distance
+- Jaccard Index
+- Jaccard Dissimilarity
+- Simple Matching Coefficient (SMC)
+
+### Methodology and Results
+
+#### Euclidean Distance
+
+The Euclidean distance measures the straight-line distance between two points in a multidimensional space. It is defined as:
+
+   ![Euclidean formula](formulas/euclidean.PNG)
+
+- **Field Used:** Population
+- **Result:** Euclidean distance between the selected points is **1483205.0**.
+
+#### Minkowski Distance
+
+The Minkowski distance generalizes the Euclidean and Manhattan distances. It is defined as:
+
+   ![Minkowski formula](formulas/minkowski.PNG)
+
+- **Field Used:** Median Age
+- **Result:** Minkowski distance (p = 3) between the selected points is **1.1999999999999993**.
+
+#### Jaccard Index
+
+The Jaccard index measures similarity between two sets, defined as the size of the intersection divided by the size of the union:
+
+   ![Jaccard formula](formulas/jaccard.png)
+
+- **Fields Used:** Annual Population Growth, Migrants
+- **Result:** Jaccard index is **0.07253494522100491**.
+
+#### Jaccard Dissimilarity
+
+Jaccard dissimilarity is the complement of the Jaccard index:
+
+\[ D(A, B) = 1 - J(A, B) \]
+
+- **Fields Used:** Annual Population Growth, Migrants
+- **Result:** Jaccard dissimilarity is **0.9274650547789951**.
+
+#### Simple Matching Coefficient (SMC)
+
+SMC measures similarity between two binary data points. It is defined as:
+
+   ![SMC formula](formulas/smc.png)
+
+Where:
+- \( a \): Number of matching 1-1 pairs
+- \( d \): Number of matching 0-0 pairs
+- \( b \): Number of 1-0 pairs
+- \( c \): Number of 0-1 pairs
+
+- **Fields Used:** Annual Population Growth, Migrants
+- **Result:** SMC is **0.5796952576613593**.
+
+### Conclusion
+
+Similarity and dissimilarity measures provide essential insights for understanding relationships in the data. By leveraging these methods, we can better interpret patterns and make informed decisions in subsequent analyses.
