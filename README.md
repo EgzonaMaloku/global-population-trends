@@ -478,7 +478,7 @@ SMOTE successfully balances the distribution, removing skewness and ensuring an 
 Before SMOTE (Top-left): The histogram shows a highly skewed distribution with a skewness value of -6.37. Most values are concentrated around 0 with a sharp peak, while there are very few extreme negative and positive migration rates.
 After SMOTE (Top-right): The skewness is slightly improved to -6.11 after SMOTE, but the distribution remains sharp near zero. While SMOTE generates some additional data, the extreme values still appear infrequent.
 
-![Migration Rate](skewness/screenshots/migration_rate.png)
+![Migration Rate](skewness/screenshots/Migration_Rate.png)
 
 SMOTE provides slight improvements, though the extreme skewness remains due to the nature of the data.
 
@@ -563,3 +563,110 @@ Where:
 ### Conclusion
 
 Similarity and dissimilarity measures provide essential insights for understanding relationships in the data. By leveraging these methods, we can better interpret patterns and make informed decisions in subsequent analyses.
+
+
+### Multivariate Analysis
+
+## Overview
+The multivariate analysis examines relationships and patterns among multiple variables in the dataset using advanced statistical and machine learning techniques.
+
+
+1. **Statistical Analys**
+Statistical Analysis:
+
+Calculated Range, Mean, Median, Variance, and Standard Deviation to summarize the features.
+Observed significant variability in population-related attributes, such as Population, Urban Population, and Density.
+
+Population and Urbanization:
+
+Features like Population, Urban Population, and World Population exhibit high variability (large ranges and variances), reflecting significant differences between countries and years.
+Urbanization levels (Urban Pop %) have a moderate spread, indicating uneven but ongoing urban population growth globally.
+Demographic Trends:
+
+Median Age and Fertility Rate show an inverse relationship, aligning with trends where regions with higher fertility rates tend to have a younger population.
+Dependency Ratio highlights the economic challenges of regions with imbalanced working-age and dependent populations.
+Migration Patterns:
+
+Large variability in Migrants (net) and Migration Rate suggests substantial differences in migration trends, with extreme highs and lows across regions and years.
+These patterns emphasize global migration as both a challenge and an opportunity for policy and infrastructure planning.
+Statistical Observations:
+
+High variance in features like Yearly Change and 3_Year_Pop_Avg showcases dynamic population changes over time, influenced by growth rates, urbanization, and migration factors.
+
+
+2. **Correlation Analysis**
+
+A Correlation Heatmap revealed strong relationships between variables like Population ↔ Urban Population and World Population.
+Negative correlation between Fertility Rate and Median Age highlights global demographic trends.
+
+Methodology:
+A correlation matrix was computed to examine relationships between features.
+A heatmap was generated to visualize these correlations.
+Insights:
+Strong positive correlations were observed between:
+Population ↔ Urban Population
+Population ↔ World Population
+Negative correlation was noted between Fertility Rate and Median Age, consistent with global demographic trends.
+
+![Correlation](analysis_scripts/results/correlation_heatmap.png)
+
+----
+3. **Principal Component Analysis (PCA)**
+
+methodology: 
+Reduced dimensionality to 3 principal components while retaining most of the variance.
+Visualized the first two components for insights into feature contributions.
+
+Findings:
+The first two components explained a significant portion of the variance in the dataset.
+A PCA scatter plot visualized the first two principal components.
+
+![PCA](analysis_scripts/results/pca_explained_variance.png)
+
+
+4. **K-Means Clustering**
+
+Used the Elbow Method to identify the optimal number of clusters (4 clusters).
+Countries were grouped based on demographic similarities, uncovering patterns in population size, growth rates, and urbanization.
+Findings:
+Silhouette Score for clustering: [insert computed silhouette score here].
+The clustering results aligned well with the PCA scatter plot, highlighting distinct demographic groups.
+
+![K-Means](analysis_scripts/results/processed_with_clusters.csv.png)
+
+
+
+3. **Pair Plot Analys**
+Overview:
+A pair plot was generated to visually explore the relationships and distributions of the dataset features. This visualization helps identify correlations, trends, outliers, and clustering behavior.
+
+Key Observations:
+Feature Distributions:
+
+The diagonal plots in the pair plot reveal that features like Population and Urban Population are highly skewed, with a small number of countries accounting for a significant portion of the values.
+Urban Population Percentage (Urban Pop %) exhibits a moderately spread distribution, indicating varying levels of urbanization across countries.
+Correlations:
+
+Strong positive correlations are evident between Population ↔ Urban Population and Population ↔ World Population, reinforcing the findings from the correlation heatmap.
+A negative relationship between Fertility Rate and Median Age is noticeable, consistent with global demographic trends.
+Clusters:
+
+The scatter plots show clear clusters, particularly when analyzing Population ↔ Urban Population. These clusters may correspond to distinct country groupings based on population and urbanization levels.
+This clustering aligns with the K-Means Clustering results, suggesting four major demographic groups.
+
+![Pair Plot Analays](analysis_scripts/results/pairplot.png)
+
+###### Contributors
+
+- **Egzona Maloku** - *Contributor*  
+- **Redon Osmanollaj** - *Contributor*  
+- **Rukije Morina** - *Contributor* 
+---
+
+**University of Prishtina "Hasan Prishtina"**  
+Faculty of Electrical and Computer Engineering (FIEK)  
+Course: Artificial Intelligence  
+
+
+
+
