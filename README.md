@@ -275,6 +275,110 @@ The boundaries for **Yearly Change** are partitioned into equal-frequency and de
 The resulting categorical values would simplify the analysis and help in identifying patterns within specific ranges of values. Discretization can enhance the interpretability of the results by grouping similar values together.
 
 
+# Outlier Detection using Z-Score and DBSCAN
+
+This project applies two methods, **Z-Score** and **DBSCAN**, to detect and handle outliers in a dataset containing demographic and population-related metrics.
+
+---
+
+## Outlier Detection
+
+The dataset contains the following key columns for analysis:
+
+- **Population**
+- **Median Age**
+- **Yearly Change**
+- **Density (P/Km²)**
+- **Migration Rate**
+- **Annual Population Growth**
+
+---
+
+## Methods
+
+### Z-Score Method
+- Calculates standardized scores for each column.
+- Flags data points exceeding a threshold (e.g., 3.5) as outliers.
+- Suitable for detecting univariate outliers.
+
+### DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
+- Identifies clusters in data and labels points that don’t belong to any cluster as outliers.
+- Configurable with parameters:
+  - **`eps`**: Maximum distance between two points to be considered part of the same cluster.
+  - **`min_samples`**: Minimum number of points required to form a cluster.
+
+---
+
+### Outlier Detection with Z-Score
+1. Applied on each column.
+2. Flags extreme values beyond the defined threshold.
+
+### Outlier Detection with DBSCAN
+1. Data scaled using `StandardScaler`.
+2. Configured with parameters:
+   - `eps = 0.7`
+   - `min_samples = 3`
+3. Outliers identified as points with label `-1`.
+
+### Combining Results
+- Union of indices flagged by Z-Score and DBSCAN.
+- Rows flagged as outliers saved separately.
+
+### Data Cleaning
+- Removed outliers from the dataset.
+- Adjusted dataset saved as `dataset_05.csv`.
+
+### Comparison of Distributions
+- Visualized before and after removing outliers.
+- KDE plots generated for:
+  - Population
+  - Median Age
+  - Density (P/Km²)
+  - Migration Rate
+  - Annual Population Growth
+
+---
+
+## Experimentation and Results
+
+### Optimal Parameters
+The best parameters for outlier detection were determined through experimentation:
+- **Z-Score Threshold**: 3.5
+- **DBSCAN Parameters**:
+  - `eps`: 0.7
+  - `min_samples`: 3
+
+---
+
+## Visual Results
+
+### Population Distribution
+The adjusted dataset shows reduced density of extreme population values.
+<img width="703" alt="image" src="https://github.com/user-attachments/assets/3e9d9a91-4e28-4243-99f9-ba0c82041547">
+
+### Median Age Distribution
+Minor adjustments visible in the adjusted dataset for outliers in higher ages.
+<img width="704" alt="image" src="https://github.com/user-attachments/assets/d6c8a718-3144-4711-89b3-e9091e116d8b">
+
+### Density (P/Km²)
+Significant reduction of extreme density values.
+<img width="696" alt="image" src="https://github.com/user-attachments/assets/222e60b6-3d7f-4f49-99e9-90b33739de44">
+
+### Migration Rate
+Most extreme migration rates were adjusted.
+<img width="706" alt="image" src="https://github.com/user-attachments/assets/bd856e88-9813-48aa-8624-83b88e8f4e63">
+
+### Annual Population Growth
+Outliers in extreme growth rates were smoothed.
+<img width="690" alt="image" src="https://github.com/user-attachments/assets/1d06ac51-2b61-4c4d-ba43-a55538221d3d">
+
+---
+
+## Conclusion
+
+- **Z-Score** effectively identified univariate outliers.
+- **DBSCAN** complemented by finding density-based outliers.
+
 
 
 ## Skewness
