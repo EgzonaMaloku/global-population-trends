@@ -376,6 +376,123 @@ The yearly change data has positive skewness, indicating that a few countries co
    ![Yearly Change Distribution](skewness/screenshots/yearly_change.JPG)
 
 
+##  SMOTE ALGORITHM
+
+### What is SMOTE Algorithm?
+The Synthetic Minority Oversampling Technique (SMOTE) is a popular oversampling method used in machine learning to address class imbalance in datasets. It generates synthetic samples for the minority class by interpolating between existing data points rather than duplicating them.
+
+
+
+### Fields and methodology
+Selected Features: A subset of columns is chosen for analysis:
+-Annual Population Growth
+-Migration Rate
+-Density (P/Km²)
+-Fertility Rate
+-Median Age
+-Yearly Change
+
+### Statistical Analysis
+The script computes key statistical metrics for the selected features:
+
+Range: The difference between the maximum and minimum values for each column.
+Variance: A measure of data variability for each column.
+Mode: The most frequently occurring value in each column.
+Median: The middle value when data is ordered.
+Here are the results:
+
+Range of Columns:
+Annual_Population_Growth    1.647051e+00
+Migration_Rate              8.055322e+01
+Density (P/Km²)             3.087400e+04
+Fertility Rate              7.950000e+00
+Median Age                  4.210000e+01
+Yearly  Change              2.605790e+07
+dtype: float64
+
+Variance of Columns:
+Annual_Population_Growth    4.447004e-03
+Migration_Rate              1.218364e+01
+Density (P/Km²)             4.109979e+06
+Fertility Rate              3.354060e+00
+Median Age                  1.003907e+02
+Yearly  Change              1.541143e+12
+dtype: float64
+
+Mode of Columns:
+Annual_Population_Growth     0.00
+Migration_Rate               0.00
+Density (P/Km²)              4.00
+Fertility Rate               1.53
+Median Age                  27.20
+Yearly  Change               0.00
+Name: 0, dtype: float64
+
+Median of Columns:
+Annual_Population_Growth       -0.029547
+Migration_Rate                 -0.000388
+Density (P/Km²)                80.000000
+Yearly  Change              30475.000000
+dtype: float64
+
+The Synthetic Minority Oversampling Technique (SMOTE) is used to balance the dataset by generating synthetic samples for underrepresented classes:
+
+Input Data (X): All features except the target columns.
+Target (y): The Growth_Category column.
+
+### Visualisations and results
+
+1. **Dendsity**
+
+Before SMOTE: Density values show high skewness (10.54), with most data concentrated near zero and minimal high-density values.
+After SMOTE: Skewness increased (12.68), but SMOTE added synthetic data while maintaining the original distribution pattern.
+Dot Plots: Highlight the added synthetic points, balancing density representation.
+
+![Dendsity](skewness/screenshots/dendsity.png)
+
+2. **Growth Category Distribution**
+
+SMOTE balanced the dataset by equalizing the representation of growth categories, ensuring better suitability for machine learning.
+
+![Growth Category Distribution](skewness/screenshots/Distribution_of_growth_category.png)
+
+3. **Fertility Rate Distribution**
+
+Before SMOTE: Fertility rates show moderate skewness (0.68), dominated by lower values.
+After SMOTE: Skewness slightly increased (1.09), with synthetic data smoothing the distribution and improving balance.
+Dot Plots: Demonstrate synthetic data filling underrepresented fertility ranges.
+
+![Fertility Rate Distribution](skewness/screenshots/Fertility_Rate.png)
+
+4. **Median**
+
+Before SMOTE : The histogram shows a skewed distribution with a skewness value of 0.53. There is a higher frequency of values clustered toward the lower end (between 15 and 30), with fewer data points at higher values.
+After SMOTE : After applying SMOTE, the distribution becomes more uniform, with a skewness value reduced to -0.02. This indicates a more balanced dataset.
+
+![Median](skewness/screenshots/Median.png)
+
+SMOTE successfully balances the distribution, removing skewness and ensuring an even spread across the range.
+
+5. **Migration Rate**
+
+Before SMOTE (Top-left): The histogram shows a highly skewed distribution with a skewness value of -6.37. Most values are concentrated around 0 with a sharp peak, while there are very few extreme negative and positive migration rates.
+After SMOTE (Top-right): The skewness is slightly improved to -6.11 after SMOTE, but the distribution remains sharp near zero. While SMOTE generates some additional data, the extreme values still appear infrequent.
+
+![Migration Rate](skewness/screenshots/migration_rate.png)
+
+SMOTE provides slight improvements, though the extreme skewness remains due to the nature of the data.
+
+5. **Yearly Change**
+
+Before SMOTE - Histogram: The histogram shows a right-skewed distribution of "Yearly Change" with a skewness of 9.72. Most data points are concentrated near zero.
+
+After SMOTE - Histogram: The histogram after applying SMOTE still shows a right-skewed distribution with a higher skewness of 12.26. Data remains highly concentrated near zero.
+
+![Yearly Change](skewness/screenshots/Yearly_Change.png)
+
+
+Conclusion:
+The analysis demonstrates the effectiveness of SMOTE in addressing class imbalances and improving data distribution. By adding synthetic samples, SMOTE balances underrepresented categories (e.g., Growth Categories) and enhances data coverage for features like Density and Fertility Rate. While the skewness slightly increases, the overall data structure and patterns remain consistent, making the dataset more suitable for training machine learning models. This balanced representation is critical for reducing bias and improving model accuracy when predicting outcomes.
 
 ## Similarity & Dissimilarity
 
