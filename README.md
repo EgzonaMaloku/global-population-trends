@@ -478,7 +478,7 @@ SMOTE successfully balances the distribution, removing skewness and ensuring an 
 Before SMOTE (Top-left): The histogram shows a highly skewed distribution with a skewness value of -6.37. Most values are concentrated around 0 with a sharp peak, while there are very few extreme negative and positive migration rates.
 After SMOTE (Top-right): The skewness is slightly improved to -6.11 after SMOTE, but the distribution remains sharp near zero. While SMOTE generates some additional data, the extreme values still appear infrequent.
 
-![Migration Rate](skewness/screenshots/Migration_Rate.png)
+![Migration Rate](skewness/screenshots/migration_rate_smote.png)
 
 SMOTE provides slight improvements, though the extreme skewness remains due to the nature of the data.
 
@@ -632,9 +632,6 @@ Findings:
 Silhouette Score for clustering: [insert computed silhouette score here].
 The clustering results aligned well with the PCA scatter plot, highlighting distinct demographic groups.
 
-![K-Means](analysis_scripts/results/processed_with_clusters.csv.png)
-
-
 
 3. **Pair Plot Analys**
 Overview:
@@ -665,7 +662,7 @@ This clustering aligns with the K-Means Clustering results, suggesting four majo
 
 **University of Prishtina "Hasan Prishtina"**  
 Faculty of Electrical and Computer Engineering (FIEK)  
-Course: Artificial Intelligence  
+Course: Data preparation and visualization
 
 
 
